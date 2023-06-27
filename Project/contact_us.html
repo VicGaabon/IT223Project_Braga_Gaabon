@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      function submitForm() {
+       
+        alert("Successfully Submitted");
+      }
+    </script>
+</head>
+<body>
+  <section class="contact_us">
+    <h2 class="logo5">Antiquitas</h2>
+    <header>
+      <nav class="navigation">
+        <a href="index.html">Back</a>
+      </nav>
+    </header>
+    <div class="information-container">
+      <h3 class="contact-heading">Contact Us</h3>
+      <form onsubmit="submitForm()">
+        <div class="contact-container">
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="contact-container">
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="contact-container">
+          <input type="text" name="phonenumber" placeholder="Your Phone number" required>
+        </div>        
+        <div class="contact-container">
+          <textarea name="complaint" rows="5" placeholder="Any comment..." required></textarea>
+        </div>
+        <div class="contact-container">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+    <footer>
+      <p>&copy; 2023 Antiquitas. All Rights Reserved.</p>
+    </footer>
+  </section>
+</body>
+</html>

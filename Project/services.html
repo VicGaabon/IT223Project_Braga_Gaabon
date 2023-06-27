@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      #submitted-comment {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+      }
+    </style>
+    <script>
+      function displayComment() {
+        var comment = document.getElementById("comment-input").value;
+        var commentSection = document.getElementById("submitted-comment");
+        commentSection.innerHTML = "<h4>Your Comment:</h4><p>" + comment + "</p>";
+        commentSection.style.display = "block";
+      }
+    </script>
+    
+</head>
+<body>
+    <section class="services">
+        <h2 class="logo4">Antiquitas</h2>
+      
+        <header>
+          <nav class="navigation">
+            <a href="index.html">Back</a>
+          </nav>  
+        </header>
+        
+        <div class="title1">
+          <h3>Our Antique Products:</h3>
+          <p>At Antiquitas, we take pride in offering a diverse and carefully curated selection of antique products from the late 1900s. Our collection includes a wide range of vintage treasures that embody the charm and nostalgia of bygone eras. Whether you are a passionate collector, a history enthusiast, or simply someone looking for unique and timeless pieces, we have something to captivate your interest.</p>
+          <p>Explore our antique furniture collection, featuring elegant tables, chairs, cabinets, and more. Each piece has been meticulously restored to its original glory, showcasing the craftsmanship and artistry of the past. See the beauty of our furniture below:</p>
+          <div class="product-image1">
+            <img src="furniture1.jpg" alt="Antique Furniture 1">
+            <img src="furniture2.jpg" alt="Antique Furniture 2">
+            <img src="furniture3.jpg" alt="Antique Furniture 3">
+          </div>
+          <p>Our vintage decor items, such as ornate mirrors, delicate porcelain, and exquisite artwork, will add a touch of sophistication to any space. Check out some of our decor pieces below:</p>
+          <div class="product-image1">
+            <img src="decor1.jpg" alt="Vintage Decor 1">
+            <img src="decor2.jpg" alt="Vintage Decor 2">
+            <img src="decor3.jpg" alt="Vintage Decor 3">
+          </div>
+          <p>For avid collectors, we offer rare and sought-after collectibles, including antique coins, stamps, books, and other unique memorabilia. These pieces carry historical significance and tell fascinating stories of a bygone era. Explore some of our collectibles below:</p>
+          <div class="product-image1">
+            <img src="collectible1.jpg" alt="Rare Collectible 1">
+            <img src="collectible2.jpg" alt="Rare Collectible 2">
+            <img src="collectible3.jpg" alt="Rare Collectible 3">
+          </div>
+          <p>In addition, we also provide a selection of timeless accessories, such as vintage jewelry, watches, and accessories, allowing you to adorn yourself with pieces that have a rich heritage. Take a look at some of our accessory offerings below:</p>
+          <div class="product-image1">
+            <img src="accessory1.jpg" alt="Vintage Accessory 1">
+            <img src="accessory2.jpg" alt="Vintage Accessory 2">
+            <img src="accessory3.jpg" alt="Vintage Accessory 3">
+          </div>
+          <p>Every item in our collection is sourced and authenticated by our team of experts, ensuring their authenticity and value. We provide detailed descriptions and high-quality photographs, allowing you to make informed decisions and appreciate the beauty of each piece. We also offer worldwide shipping, ensuring that your cherished antique product reaches you safely and securely.</p>
+          <p>Immerse yourself in the world of antiquity and discover the allure of vintage craftsmanship and timeless elegance through our exceptional antique products.</p>
+        </div>
+      
+        <div class="comment-box">
+          <h3>Leave a Comment:</h3>
+          <form onsubmit="return false;">
+            <textarea id="comment-input" rows="5" cols="50" placeholder="Write your comment here..."></textarea>
+            <br>
+            <input type="button" value="Submit" onclick="displayComment()">
+          </form>
+        </div>
+        
+        <div id="submitted-comment" style="display: none;"></div>
+      </section>
+      
+    
+</body>
+</html>

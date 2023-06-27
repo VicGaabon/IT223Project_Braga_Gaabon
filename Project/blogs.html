@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .enlarged-image {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .enlarged-image.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .enlarged-image img {
+      max-width: 90%;
+      max-height: 70%;
+      margin-bottom: 20px;
+    }
+
+    .enlarged-image .image-description {
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .enlarged-image .image-link {
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .post-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-image img {
+      transition: transform 0.3s ease;
+    }
+
+    .post-image:hover img {
+      transform: scale(1.1);
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const postImages = document.querySelectorAll('.post-image');
+
+      postImages.forEach((image) => {
+        image.addEventListener('click', () => {
+          const imageUrl = image.querySelector('img').getAttribute('src');
+          const imageDescription = image.querySelector('.image-description').textContent;
+          const randomLink = getRandomLink();
+
+          const enlargedImage = document.createElement('div');
+          enlargedImage.classList.add('enlarged-image');
+
+          const imageContent = document.createElement('img');
+          imageContent.setAttribute('src', imageUrl);
+
+          const description = document.createElement('p');
+          description.classList.add('image-description');
+          description.textContent = imageDescription;
+
+          const link = document.createElement('p');
+          link.classList.add('image-link');
+          link.textContent = 'Learn More';
+          link.addEventListener('click', () => {
+            window.open(randomLink, '_blank');
+          });
+
+          enlargedImage.appendChild(imageContent);
+          enlargedImage.appendChild(description);
+          enlargedImage.appendChild(link);
+
+          document.body.appendChild(enlargedImage);
+
+          setTimeout(() => {
+            enlargedImage.classList.add('open');
+          }, 10);
+
+          enlargedImage.addEventListener('click', () => {
+            enlargedImage.classList.remove('open');
+
+            setTimeout(() => {
+              document.body.removeChild(enlargedImage);
+            }, 300);
+          });
+        });
+      });
+
+      function getRandomLink() {
+        const links = [
+          'https://www.vinterior.co/blog/behind-the-design/the-history-of/antique-chair-styles-and-how-to-find-them/',
+          'https://www.homesandantiques.com/antiques/antique-and-vintage-vases',
+          'https://www.vogue.com/article/best-vintage-jewelry',
+        ];
+
+        const randomIndex = Math.floor(Math.random() * links.length);
+        return links[randomIndex];
+      }
+    });
+  </script>
+</head>
+<body>
+  <section class="blog">
+    <h2 class="logo3">Antiquitas</h2>
+    <header>
+      <nav class="navigation">
+        <a href="index.html">Back</a>
+      </nav>
+    </header>
+    <div class="content1">
+      <article class="blog-post">
+        <h3 class="post-title">Exploring Vintage Furniture</h3>
+        <div class="post-image">
+          <img src="image1.jpg" alt="Vintage Furniture">
+          <p class="image-description">Vintage armchair with intricate woodwork.</p>
+          <p class="image-link">Learn More</p>
+        </div>
+        <p class="post-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac nunc mauris. Morbi quis mi ac velit vestibulum eleifend. Sed ac gravida nunc. Phasellus nec luctus nisi. Sed eu orci eget ligula tempus condimentum.
+        </p>
+      </article>
+
+      <article class="blog-post">
+        <h3 class="post-title">Uncovering Antique Art Pieces</h3>
+        <div class="post-image">
+          <img src="image2.jpg" alt="Antique Art Pieces">
+          <p class="image-description">Collection of antique porcelain vases.</p>
+          <p class="image-link">Learn More</p>
+        </div>
+        <p class="post-content">
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Curabitur scelerisque, turpis vel malesuada suscipit, sapien lorem fringilla mauris, et volutpat neque elit vitae nisi.
+        </p>
+      </article>
+
+      <article class="blog-post">
+        <h3 class="post-title">The Charm of Vintage Jewelry</h3>
+        <div class="post-image">
+          <img src="image3.jpg" alt="Vintage Jewelry">
+          <p class="image-description">Assortment of vintage jewelry pieces, including necklaces, rings, and brooches.</p>
+          <p class="image-link">Learn More</p>
+        </div>
+        <p class="post-content">
+          Phasellus scelerisque, mauris nec fringilla tincidunt, elit elit finibus justo, nec eleifend lacus ex nec ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla bibendum sapien vitae mi ullamcorper, sit amet pellentesque turpis congue.
+        </p>
+      </article>
+
+      
+    </div>
+  </section>
+</body>
+</html>
